@@ -18,6 +18,32 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.name_field :name, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :major %><br />
+    <%= f.major_field :major, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :studentNumber %><br />
+    <%= f.studentNumber_field :studentNumber, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phoneNumber %><br />
+    <%= f.phoneNumber_field :phoneNumber, autocomplete: "off" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :feeOfSchool %><br />
+    <%= f.feeOfSchool_field :feeOfSchool, autocomplete: "off" %>
+  </div>
+
   <div class="actions">
     <%= f.submit t('.sign_up') %>
   </div>

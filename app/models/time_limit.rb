@@ -1,0 +1,2 @@
+class TimeLimit < ApplicationRecord
+end

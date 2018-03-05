@@ -1,0 +1,33 @@
+<div class="container">
+  응용화학과 사물함 신청 페이지에 오신 것을 환영합니다.
+
+  <div class="row">
+    <div class="col">
+      <a href="/locker/applchem">사물함신청</a>
+    </div>
+    <div class="col">
+      <% if user_signed_in? %>
+      &nbsp&nbsp&nbsp&nbsp<strong><%= current_user.name %></strong>&nbsp님 안녕하세요.
+      <% end %>
+      <% if user_signed_in? %>
+        <% if user_admin? %>
+          <!-- <li><%= link_to "사물함설정", edit_limit_path(current_major?.to_i), method:"get" %></li>
+          <li><%= link_to "신청현황", admin_index_path %></li>
+          <li><%= link_to "학생등록", csv_index_path, method:"get" %></li>
+          <li><%= link_to "가입신청 확인", tempusers_index_path, method:"get" %></li>
+        <% else %>
+          <li><%= link_to "사물함 신청", choose_index_path, method: "get" %></li> -->
+        <% end %>
+      <% else %>
+          <%= link_to "회원가입", new_user_registration_path, method: "get" %>
+      <% end %>
+      <% if user_signed_in? %>
+        <li><%= link_to "로그아웃", destroy_user_session_path, method: "delete" %></li>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+COPYRIGHT ⓒ 2018 DOEHOON KIM ALL RIGHT RESEVED.

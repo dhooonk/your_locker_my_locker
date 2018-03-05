@@ -1,0 +1,69 @@
+<div class="card">
+  <div class="card-body">
+    <strong>공지사항</strong><br>
+    사용기간 종료 후에는 연장 신청된 사물함을 제외한 모든 사물함이 자동 반납처리되며, 사용기간 이후 사물함 내외의 개인물품은 강제 폐기되오니 기간 유의해주시길 바랍니다.<br><br>
+    <strong>사물함 이용문의</strong><br>
+    응용화학과 학생회장 권영우<br><br>
+
+    <strong>사물함 사용 여부</strong> <br>
+    <input class = "btn btn-default btn-lg " type = "button" value = "신청가능">
+    <input class = "btn btn-default btn-lg " type = "button" value = "신청불가" style="background-color: gray;">
+  </div>
+</div>
+
+<div class = "container"><!-- 닫는 코드 맨 아래에 위치-->
+  <div class="row"><!-- 닫는 코드 맨 아래에 위치-->
+    <div class = "col-xs-12" style="text-align:center;">
+      <h2>응용화학과 사물함</h2>
+    </div>
+    <div class = "col-xs-12" style="text-align:left;">
+      <h3>← 연구실방향</h3>
+    </div>
+    <div class = "col-xs-12 col-sm-6 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1">
+      <h2 class = "h2"> A사물함</h2>
+      <table class="table">
+        <% @number.each do |num| %>
+          <tr>
+            <% num.each do |n| %>
+              <td>
+                <%= form_tag applchem_path, id:"locker" do %>
+                  <% if !!ApplchemLocker.find_by(lockerNumber:"A-#{n}") %>
+                    <input id = "selected" class = "btn btn-default" type = "submit" name = "seatNumber" value = "A-<%= n %>">
+                  <% else %>
+                    <input class = "btn btn-default" type = "submit" name = "lockerNum" value = "A-<%= n %>" data-confirm="A-<%= n %> 사물함을 신청하시겠습니까?">
+                    <input type = "hidden" name = "major" value="응용화학과"/>
+                  <% end %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class = "col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-0 col-lg-2 col-lg-offset-0">
+      <h2 class = "h2">B사물함</h2>
+      <table class="table">
+        <% @number_dif.each do |num| %>
+          <tr>
+            <% num.each do |n| %>
+              <td>
+                <%= form_tag applchem_path, id:"locker" do %>
+                  <% if !!ApplchemLocker.find_by(lockerNumber:"B-#{n}") %>
+                      <input id = "selected" class = "btn btn-default" type = "submit" name = "seatNumber" value = "B-<%= n %>">
+                  <% else %>
+                      <input class = "btn btn-default" type = "submit" name = "lockerNum" value = "B-<%= n %>" data-confirm="B-<%= n %> 사물함을 신청하시겠습니까?">
+                      <input type = "hidden" name = "major" value="응용화학과"/>
+                  <% end %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class = "col-xs-12" style="text-align:right;">
+      <h3>엘리베이터 방향 →</h3>
+    </div>
+  </div><!--row닫힘태그-->
+</div><!--container닫힘태그 -->
