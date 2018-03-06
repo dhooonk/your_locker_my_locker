@@ -3,26 +3,36 @@
 
   <div class="row">
     <div class="col">
-      <a href="/locker/applchem">사물함신청</a>
+      <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">  사물함신청합시다.
+        <h6 class="card-subtitle mb-2 text-muted"> 사물함신청합시다.</h6>
+        <p class="card-text"> 사물함신청합시다.</p>
+        <a href="/locker/applchem">사물함신청</a>
+      </div>
+      </div>
     </div>
     <div class="col">
-      <% if user_signed_in? %>
-      &nbsp&nbsp&nbsp&nbsp<strong><%= current_user.name %></strong>&nbsp님 안녕하세요.
-      <% end %>
-      <% if user_signed_in? %>
-        <% if user_admin? %>
-          <!-- <li><%= link_to "사물함설정", edit_limit_path(current_major?.to_i), method:"get" %></li>
-          <li><%= link_to "신청현황", admin_index_path %></li>
-          <li><%= link_to "학생등록", csv_index_path, method:"get" %></li>
-          <li><%= link_to "가입신청 확인", tempusers_index_path, method:"get" %></li>
-        <% else %>
-          <li><%= link_to "사물함 신청", choose_index_path, method: "get" %></li> -->
-        <% end %>
+        <% if user_signed_in? %>
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">  &nbsp&nbsp&nbsp&nbsp<strong><%= current_user.name %></strong>&nbsp님 안녕하세요.</h5>
+          <h6 class="card-subtitle mb-2 text-muted">현재 사물함을 사용하고 계십니다.</h6>
+          <p class="card-text">현재 사물함을 사용하고 계십니다.</p>
+          <%= link_to "로그아웃", destroy_user_session_path, method: "delete" %>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+        </div>
       <% else %>
-          <%= link_to "회원가입", new_user_registration_path, method: "get" %>
-      <% end %>
-      <% if user_signed_in? %>
-        <li><%= link_to "로그아웃", destroy_user_session_path, method: "delete" %></li>
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to "로그인", new_user_session_path, method: "get" %>
+          <h5 class="card-title"><%= link_to "회원가입", new_user_registration_path, method: "get" %>
+          <h6 class="card-subtitle mb-2 text-muted">사물함신청서비스를 위해 가입하셔야합니다..</h6>
+          <p class="card-text">사물함신청서비스를 위해 가입하셔야합니다.</p>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+        </div>
       <% end %>
     </div>
   </div>

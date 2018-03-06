@@ -13,17 +13,12 @@
 ActiveRecord::Schema.define(version: 20180305152936) do
 
   create_table "applchem_lockers", force: :cascade do |t|
-    t.integer "users_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_applchem_lockers_on_users_id"
-  end
-
-  create_table "lockers", force: :cascade do |t|
     t.integer "user_id"
+    t.string "lockerNumber"
+    t.string "major"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_lockers_on_user_id"
+    t.index ["user_id"], name: "index_applchem_lockers_on_user_id"
   end
 
   create_table "time_limits", force: :cascade do |t|
@@ -36,6 +31,11 @@ ActiveRecord::Schema.define(version: 20180305152936) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "major", default: "", null: false
+    t.string "studentNumber", default: "", null: false
+    t.string "phoneNumber", default: "", null: false
+    t.boolean "feeOfSchool", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

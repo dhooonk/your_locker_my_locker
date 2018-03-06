@@ -26,9 +26,9 @@
           <tr>
             <% num.each do |n| %>
               <td>
-                <%= form_tag applchem_path, id:"locker" do %>
+                <%= form_tag locker_applchem_path, id:"locker" do %>
                   <% if !!ApplchemLocker.find_by(lockerNumber:"A-#{n}") %>
-                    <input id = "selected" class = "btn btn-default" type = "submit" name = "seatNumber" value = "A-<%= n %>">
+                    <input id = "selected" class = "btn btn-default" type = "submit" name = "lockerNum" value = "A-<%= n %>">
                   <% else %>
                     <input class = "btn btn-default" type = "submit" name = "lockerNum" value = "A-<%= n %>" data-confirm="A-<%= n %> 사물함을 신청하시겠습니까?">
                     <input type = "hidden" name = "major" value="응용화학과"/>
@@ -47,9 +47,9 @@
           <tr>
             <% num.each do |n| %>
               <td>
-                <%= form_tag applchem_path, id:"locker" do %>
+                <%= form_tag locker_applchem_path, id:"locker" do %>
                   <% if !!ApplchemLocker.find_by(lockerNumber:"B-#{n}") %>
-                      <input id = "selected" class = "btn btn-default" type = "submit" name = "seatNumber" value = "B-<%= n %>">
+                      <input id = "selected" class = "btn btn-default" type = "submit" name = "lockerNum" value = "B-<%= n %>">
                   <% else %>
                       <input class = "btn btn-default" type = "submit" name = "lockerNum" value = "B-<%= n %>" data-confirm="B-<%= n %> 사물함을 신청하시겠습니까?">
                       <input type = "hidden" name = "major" value="응용화학과"/>

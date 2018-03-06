@@ -2,29 +2,29 @@ it:
   activerecord:
     attributes:
       user:
-        confirmation_sent_at: 
-        confirmation_token: 
-        confirmed_at: 
-        created_at: 
+        confirmation_sent_at: Conferma inviata a
+        confirmation_token: Token di conferma
+        confirmed_at: Confermato il
+        created_at: Creato il
         current_password: Password corrente
-        current_sign_in_at: 
-        current_sign_in_ip: 
+        current_sign_in_at: Accesso corrente il
+        current_sign_in_ip: IP accesso corrente
         email: Email
-        encrypted_password: 
-        failed_attempts: 
-        last_sign_in_at: 
-        last_sign_in_ip: 
-        locked_at: 
+        encrypted_password: Password criptata
+        failed_attempts: Tentativi falliti
+        last_sign_in_at: Ultimo accesso il
+        last_sign_in_ip: Ultimo IP di accesso
+        locked_at: Bloccato il
         password: Password
         password_confirmation: Conferma password
-        remember_created_at: 
+        remember_created_at: Ricordami creato il
         remember_me: Ricordami
-        reset_password_sent_at: 
+        reset_password_sent_at: Reset password inviata a
         reset_password_token: Token di reset password
-        sign_in_count: 
-        unconfirmed_email: 
+        sign_in_count: Numero di accessi
+        unconfirmed_email: Email non confermata
         unlock_token: Token di sblocco
-        updated_at: 
+        updated_at: Aggiornato il
     models:
       user: Utente
   devise:
@@ -37,10 +37,10 @@ it:
     failure:
       already_authenticated: Hai già effettuato l'accesso.
       inactive: Il tuo account non è stato ancora attivato.
-      invalid: Indirizzo email o password non validi.
+      invalid: 
       last_attempt: Hai ancora un tentativo prima che l'account venga bloccato.
       locked: Il tuo account è bloccato.
-      not_found_in_database: Email o password non validi.
+      not_found_in_database: 
       timeout: Sessione scaduta, accedere nuovamente per continuare.
       unauthenticated: Devi accedere o registrarti per continuare.
       unconfirmed: Devi confermare il tuo account per continuare.
@@ -50,6 +50,10 @@ it:
         greeting: Benvenuto %{recipient}!
         instruction: 'Puoi confermare il tuo account cliccando sul link qui sotto:'
         subject: Istruzioni per la conferma
+      email_changed:
+        greeting: 
+        message: 
+        subject: 
       password_change:
         greeting: Ciao %{recipient}!
         message: Ti stiamo contattando per notificarti che la tua password è stata modificata.
@@ -118,6 +122,7 @@ it:
         sign_in: Accedi
         sign_in_with_provider: Accedi con %{provider}
         sign_up: Registrati
+      minimum_password_length: 
     unlocks:
       new:
         resend_unlock_instructions: Invia di nuovo le istruzioni per lo sblocco

@@ -40,6 +40,9 @@ gem 'simple_form'
 gem 'devise'
 gem 'devise-i18n'
 
+#권한지정
+gem 'rolify'
+gem 'cancancan'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
