@@ -5,9 +5,17 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+
+  #index(main&User)
+  get "/index/myinfo"
+
+  #locker apply
   resources :locker, only: [:index, :create]
   get "/locker/applchem" => "locker#applchem"
   post "/locker/applchem" => "locker#create"
-  resources :time_limits, only: [:index, :update]
-  resources :admin
+  delete "/locker/destroyApplchem/:id" => "locker#destroyApplchem"
+
+  #admin
+  resources :admin, only: [:index, :destroy, :edit, :update]
+  get "/admin/time"
 end

@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+  <div class="col-12">
+    <div class="card">
+    <div class="card-body">
+    <h1 class="page-header">
+      신청현황<small>Application Condition</small>
+    </h1>
+        <%= flash[:notice] %>
+        <%= flash[:caution] %>
+
+
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th class="tableCenter"><strong>권한</strong></th>
+                      <th class="tableCenter"><strong>이름</strong></th>
+                      <th class="tableCenter"><strong>학과</strong></th>
+                      <th class="tableCenter"><strong>학번</strong></th>
+                      <th class="tableCenter"><strong>연락처</strong></th>
+                      <th class="tableCenter"><strong>이메일</strong></th>
+                      <th class="tableCenter"><strong>학생회비</strong></th>
+                      <th class="tableCenter"><strong>신청 사물함(학과)</strong></th>
+                      <th class="tableCenter"><strong>비밀번호 변경</strong></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @user_admin.each do |userInformation| %>
+                      <tr>
+                          <td>
+                            <% if userInformation.identity == "student" %>
+                              학부생
+                            <% elsif userInformation.identity == "admin" %>
+                              관리자
+                            <% end %>
+                          </td>
+                          <td>
+                            <%= userInformation.name %>
+                          </td>
+                          <td>
+                            <%= userInformation.major %>
+                          </td>
+                          <td>
+                            <%= userInformation.studentNumber %>
+                          </td>
+                          <td>
+                              <%= userInformation.phoneNumber %>
+                          </td>
+                          <td>
+                              <%= userInformation.email %>
+                          </td>
+                          <td>
+                            <% if userInformation.feeOfSchool == true %>
+                            납부<%= link_to "[변경]", "/admin/#{userInformation.id}", method: "post", data: {confirm: "(#{userInformation.studentNumber})계정의 학생회비를 '미납'으로 변경하시겠습니까?"} %>
+                            <% else %>
+                            미납<%= link_to "[변경]", "/admin/#{userInformation.id}", method: "post", data: {confirm: "(#{userInformation.studentNumber})계정의 학생회비를 '납부'로 변경하시겠습니까?"}  %>
+                            <% end %>
+                          </td>
+                      <% if current_user.major == "응용화학과" %>
+                        <% if userInformation.applchemLocker == nil%>
+                          <td>미신청</td>
+                        <% else %>
+                          <td><%= userInformation.applchemLocker.lockerNumber %></td>
+                        <% end %>
+                      <% end %>
+                          <td>
+                              <%= link_to "[변경]",edit_admin_path(userInformation.id), method:"get", data: {confirm: "비밀번호가 '123456'으로 변경됩니다. 정말 변경하시겠습니까?"} %>
+                          </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+
+
+    </div>
+    </div>
+  </div>
+  </div>
+</div>

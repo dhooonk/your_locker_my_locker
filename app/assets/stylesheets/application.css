@@ -13,3 +13,66 @@
  *= require_tree .
  *= require_self
  */
+ @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+ .nanumgothic * {
+  font-family: 'Nanum Gothic', sans-serif;
+ }
+*{
+ font-family: 'Nanum Gothic', sans-serif;
+}
+
+a:link {text-decoration: none; color: #000;}
+a:visited {text-decoration: none; color: #000;}
+a:active {text-decoration: none; color: #000;}
+a:hover {text-decoration: none; color: #000;}
+
+/* application html */
+#header {
+  height: 200px;
+}
+#khuxylml{
+}
+
+
+/* On screens that are ###px or less, set the size of */
+#preview{
+  max-width: 650px;
+}
+@media(max-width:992px){#preview{width:448px;}}
+@media(max-width:768px){#preview{width:448px;}}
+@media(max-width:576px){#preview{width:448px;}}
+
+body {
+  background-image: url("bg.png");
+  background-size: 100%;
+  padding-bottom: 100px;
+}
+
+/* index */
+
+#footerLikelion{
+  width:200px;
+}
+#applechemLocker{
+  background-image: url("applchem.png");
+  background-size: 100%;
+}
+
+/* myinfo */
+
+
+table, th, td, tr {
+  text-align: center;
+}
+
+/* admin */
+.tableCenter{
+  text-align: center;
+}
+
+/* locker */
+/* 
+   #selected {
+     background-color: gray;
+   } */

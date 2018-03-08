@@ -1,5 +1,11 @@
 class LockerController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :applchemNot?, only: [:applechem, :destroyApplchem]
+  before_action :feeOfSchoolNot?
+  before_action :ApplchemTime, only: [:applchem,:destroyApplchem]
+  before_action :ordinaryUserNot?
+  before_action :applyApplchemLocker?, only: [:index]
 def applchem
   @lockers = ApplchemLocker.all
   # 행           열 #
@@ -20,25 +26,38 @@ end
 def create
   if current_user.major == "응용화학과"
       if params[:major] == "응용화학과"
-        if ApplchemLocker.find_by(lockerNumber: params[:lockerNum])
-          redirect_to locker_applchem_path, method:"get"
+        if ApplchemLocker.find_by(lockerNumber: params[:lockerNumber])
+          redirect_to root_path, method:"get"
           flash[:alert] = "이미 신청완료 된 사물함입니다."
         else
-          ApplchemLocker.create(lockerNumber: params[:lockerNum], major: current_user.major, user_id: current_user.id)
+          ApplchemLocker.create(lockerNumber: params[:lockerNumber], major: current_user.major, user_id: current_user.id)
           redirect_to root_path, method: "get"
-          flash[:success] = "#{params[:lockerNum]}번 사물함이 신청되었습니다."
+          flash[:success] = "#{params[:lockerNumber]}번 사물함이 신청되었습니다."
         end
       end
   end
 end
 
-def destroy_applchem
-
-applchemLocker = ApplchemLocker.find_by(user_id: params[:id])
-applchemLocker.destroy
-redirect_to root_path
-
-flash[:warning] = "사물함이 취소되었습니다."
+def destroyApplchem
+  applchemLocker = ApplchemLocker.find_by(user: params[:id])
+  applchemLocker.destroy
+  redirect_to root_path
+  flash[:warning] = "사물함이 취소되었습니다."
 end
+
+def ApplchemTime
+  if (current_user.identity != "admin")
+    if !(applchemStudentTimeStart == applchemStudentTimeEnd)
+      if (applchemStudentTimeStart > Time.now) || (Time.now > applchemStudentTimeEnd)
+        redirect_to root_path
+        flash[:alert] = "신청기간이 아닙니다."
+      end
+    else
+      redirect_to root_path
+      flash[:alert] = "신청기간이 아닙니다."
+    end
+  end
+end
+
 
 end

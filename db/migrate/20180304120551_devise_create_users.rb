@@ -5,11 +5,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.string :name,               null: false, default: ""
-      t.string :major,              null: false, default: ""
+      t.string :major,              null: false, default: "응용화학과"
       t.string :studentNumber,      null: false, default: ""
       t.string :phoneNumber,        null: false, default: ""
       t.boolean :feeOfSchool,       null: false, default: ""
-
+      t.string :identity,           null: false, default: "student"
+      t.boolean :notation,          null: false, default: ""
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

@@ -1,0 +1,55 @@
+<div class="container container-fluid">
+  <div class="col-12">
+    <div class="card">
+    <div class="card-body">
+
+  <h1 class="page-header">
+    내 정보<small>My info</small>
+  </h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+   <tr>
+     <th scope="col"><strong>권한</strong></th>
+     <th scope="col"><strong>이름</strong></th>
+     <th scope="col"><strong>학과</strong></th>
+     <th scope="col"><strong>학번</strong></th>
+     <th scope="col"><strong>비밀번호</strong></th>
+     <th scope="col"><strong>사물함</strong></th>
+     <th scope="col"><strong>학생회비납부여부</strong></th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <% if current_user.identity == "student" %>
+        <th scope = "row">학생</th>
+     <% elsif current_user.identity == "admin" %>
+        <th scope = "row">관리자</th>
+     <% end %>
+     <td><%= current_user.name %></td>
+     <td><%= current_user.major %></td>
+     <td><%= current_user.studentNumber %></td>
+     <td><%= link_to "회원정보수정", edit_user_registration_path , class: "btn btn-outline-secondary btn-sm" %></td>
+      <% if current_user.major == "응용화학과" %>
+        <% if (current_user.applchemLocker != nil) %>
+          <td><%= current_user.applchemLocker.lockerNumber %>&nbsp<%= link_to "취소", "/locker/destroyApplchem/#{current_user.id}", method:"delete", data: {confirm: "정말 취소하시겠습니까?"}, class: "btn btn-outline-secondary btn-sm" %></td>
+        <% elsif (current_user.applchemLocker == nil) %>
+          <td><%= link_to "신청하기", locker_applchem_path, method: "get", class: "btn btn-outline-secondary btn-sm" %></td>
+        <% end %>
+        <% end %>
+      <td>
+      <% if current_user.feeOfSchool == true%>
+      납부
+      <% else %>
+      미납
+      <% end %>
+      </td>
+   </tr>
+ </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>
+</div>
