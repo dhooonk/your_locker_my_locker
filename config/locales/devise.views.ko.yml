@@ -27,6 +27,7 @@ ko:
         updated_at: "업데이트된 시간"
         studentNumber: "학번"
         login: "학번"
+        phoneNumber: "연락처"
     models:
       user: "사용자"
   devise:
@@ -99,7 +100,7 @@ ko:
         leave_blank_if_you_don_t_want_to_change_it: "변경을 원하지 않으시면 빈 칸으로 남겨주세요"
         title: "%{resource} 정보 수정"
         unhappy: "회원 탈퇴를 하시겠습니까?"
-        update: "변경"
+        update: "수정"
         we_need_your_current_password_to_confirm_your_changes: "변경 사항을 반영하려면 현재 비밀번호를 입력하세요"
       new:
         sign_up: "회원 가입"
@@ -139,3 +140,7 @@ ko:
       not_found: "찾을 수 없습니다."
       not_locked: "은(는) 잠기지 않았습니다."
       not_saved: "%{count}개의 오류로 인해 %{resource}이(가) 저장되지 못했습니다."
+      blank: "비밀번호를 입력해주세요."
+      invalid: "이메일 형식이 올바르지 않습니다."
+      taken: "이미 같은 이메일을 사용하는 계정이 있습니다."
+      too_short: "비밀번호는 6자 이상 입력하셔야 합니다."

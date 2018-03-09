@@ -7,10 +7,11 @@
         <div class="card">
         <div class="card-body">
       <div class="col-md-4 col-md-offset-4">
-        <h2>
-          회원 정보 수정
+        <h3>
+          회원정보 수정 <small> Edit Info</small>
           <!-- <%= t(".title", resource: resource_name.to_s.humanize) %> -->
-        </h2>
+        </h3>
+        <hr>
           <div class="form-inputs">
             <%= f.input :studentNumber, required: true, autofocus: true %>
 
@@ -21,6 +22,8 @@
             <%= f.input :password, autocomplete: "off", hint: t(".leave_blank_if_you_don_t_want_to_change_it"), required: false %>
             <%= f.input :password_confirmation, required: false %>
             <%= f.input :current_password, hint: t(".we_need_your_current_password_to_confirm_your_changes"), required: true %>
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :phoneNumber, required: true, autofocus: true %>
             <div class="row">
               <div class="col-md-4 col-md-offset-4">
                 <div class="form-actions">

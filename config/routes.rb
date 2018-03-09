@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   #index(main&User)
   get "/index/myinfo"
+  get "/index/privacy" =>"index#privacy"
+  get "/index/partner" =>"index#partner"
+  get "/index/service" =>"index#service"
 
   #locker apply
   resources :locker, only: [:index, :create]
@@ -18,4 +21,8 @@ Rails.application.routes.draw do
   #admin
   resources :admin, only: [:index, :destroy, :edit, :update]
   get "/admin/time"
+
+  #route security
+  match '*path' => redirect('/'), via: :get
+get '/rails/info/routes' => redirect('/')
 end

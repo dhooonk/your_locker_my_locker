@@ -5,7 +5,7 @@
         <% if user_signed_in? %>
           <% if (current_user.major=="응용화학과") %>
           <a href="/locker/applchem" class="card-link" >
-        <div class="card" id="applechemLocker">
+        <div class="card" id="applchemLocker">
         <div class="card-body">
           <h5 class="card-title" style="color: #e9e9e9"> 경희대학교 응용화학과
           <h6 class="card-subtitle mb-2" style="color: #e9e9e9">경희대학교 공과대학 4층
@@ -13,25 +13,51 @@
             <% if current_user.identity == "student" %>
               <% if @time1.studentTimeStart > Time.now %>
               <span class="badge badge-warning">학부생 접수전</span>
+              <span class="badge badge-light">신청기간 : <%= @time1.studentTimeStart %> ~ <%= @time1.studentTimeEnd %></span>
               <% elsif @time1.studentTimeStart <= Time.now && @time1.studentTimeEnd >= Time.now %>
               <span class="badge badge-success">학부생 접수중</span>
+              <span class="badge badge-light">신청기간 : <%= @time1.studentTimeStart %> ~ <%= @time1.studentTimeEnd %></span>
               <% elsif @time1.studentTimeStart == @time1.studentTimeEnd %>
               <span class="badge badge-secondary">학부생 설정 전</span>
+              <span class="badge badge-light">신청기간 : <%= @time1.studentTimeStart %> ~ <%= @time1.studentTimeEnd %></span>
               <% else %>
               <span class="badge badge-danger">학부생 접수완료</span>
+              <span class="badge badge-light">신청기간 : <%= @time1.studentTimeStart %> ~ <%= @time1.studentTimeEnd %></span>
               <% end %>
+          </p>
+        </div>
+        </div>
+        </a>
+        <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"> <span class="badge badge-warning">공지사항</span>
+          <h6 class="card-subtitle mb-2">
+          <p class="card-text"><small>이용에 불편함을 겪거나 문의사항이 있으신분은 학생회장 권영우(010-2752-1827) 혹은 김도훈 (010-3236-6642)으로 문의해주시면 확인하는 대로 연락드리겠습니다.</small></p>
+        </div>
+        </div>
+        <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"> <span class="badge badge-warning">공지사항</span>
+          <h6 class="card-subtitle mb-2">
+          <p class="card-text"><small>어제 개발자분과의 미팅이 있었습니다. 현재 작년 페이지를 새로 리뉴얼 하는 과정에서 모든 데이터가 초기화 되었고 금일(3월9일 금요일) 오후2시쯤 사물함 신청 페이지와 신청방법에 대한 공지사항이 올라갈 예정입니다.
+          추가적으로 페이지의 안정성과 완성도에 대한 이야기를 나누어본 결과 다음주 월요일쯤 되어야 학우분들이 사용하기에 적합하다고 판단, 사이트 가입은 금요일부터 일요일까지// 사물함 신청은 월요일로 진행하게 되었습니다.
+          다시한번 기다리게 해 드려 죄송한 마음을 전해 드립니다.
+          더욱 자세한 공지는 앞서 말씀드렸다시피 금일 오후에 상세하게 공지될 예정입니다.</small>
             <% end %>
           <% end %>
           </p>
         </div>
         </div>
-        </a>
+
         <% else %>
         <div class="card">
-          <div class="card-body" >
+          <div class="card-body text-center" >
               <%= image_tag("preview.png", id:"preview") %>
           </div>
           </div>
+          <a href='https://play.google.com/store/apps/details?id=com.w_5557579'>
+            <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/ko_badge_web_generic.png'/ style="width:150px;">
+          </a>
         <% end %>
     </div>
   </div>
@@ -102,9 +128,9 @@
               </div>
               <div class="col-12">
                   <hr style="border-color:#fff;margin-bottom:1.6em;">
-                 <a href="/posts#services" style="color: #a9afb3;">소개</a> /
-                 <a href="/posts/partner" style="color: #a9afb3;">제휴제안</a> /
-                 <a href="/posts/privacy" style="color: #a9afb3;">개인정보처리방침</a>
+                 <a href="/index/service" style="color: #a9afb3;">소개</a> /
+                 <a href="/index/partner" style="color: #a9afb3;">제휴제안</a> /
+                 <a href="/index/privacy" style="color: #a9afb3;">개인정보처리방침</a>
               </div>
             </small>
           </div>

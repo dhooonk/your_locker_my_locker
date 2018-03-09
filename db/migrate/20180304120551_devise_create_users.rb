@@ -6,8 +6,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :encrypted_password, null: false, default: ""
       t.string :name,               null: false, default: ""
       t.string :major,              null: false, default: "응용화학과"
-      t.string :studentNumber,      null: false, default: ""
-      t.string :phoneNumber,        null: false, default: ""
+      t.integer :studentNumber,      null: false, default: ""
+      t.integer :phoneNumber,        null: false, default: ""
       t.boolean :feeOfSchool,       null: false, default: ""
       t.string :identity,           null: false, default: "student"
       t.boolean :notation,          null: false, default: ""
@@ -41,6 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     end
 
     add_index :users, :email,                unique: true
+    add_index :users, :studentNumber,        unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true

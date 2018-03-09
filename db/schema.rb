@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20180306091052) do
     t.string "encrypted_password", default: "", null: false
     t.string "name", default: "", null: false
     t.string "major", default: "응용화학과", null: false
-    t.string "studentNumber", default: "", null: false
-    t.string "phoneNumber", default: "", null: false
+    t.integer "studentNumber", null: false
+    t.integer "phoneNumber", null: false
     t.boolean "feeOfSchool", null: false
     t.string "identity", default: "student", null: false
     t.boolean "notation", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20180306091052) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["studentNumber"], name: "index_users_on_studentNumber", unique: true
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|

@@ -39,14 +39,16 @@ a:hover {text-decoration: none; color: #000;}
 #preview{
   max-width: 650px;
 }
-@media(max-width:992px){#preview{width:448px;}}
-@media(max-width:768px){#preview{width:448px;}}
-@media(max-width:576px){#preview{width:448px;}}
+@media(max-width:1200px){#preview{width:550px;}}
+@media(max-width:992px){#preview{width:380px;}}
+@media(max-width:768px){#preview{width:350px;}}
 
 body {
   background-image: url("bg.png");
   background-size: 100%;
   padding-bottom: 100px;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
 }
 
 /* index */
@@ -54,7 +56,7 @@ body {
 #footerLikelion{
   width:200px;
 }
-#applechemLocker{
+#applchemLocker{
   background-image: url("applchem.png");
   background-size: 100%;
 }
@@ -72,7 +74,7 @@ table, th, td, tr {
 }
 
 /* locker */
-/* 
+/*
    #selected {
      background-color: gray;
    } */

@@ -1,11 +1,11 @@
 class LockerController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :applchemNot?, only: [:applechem, :destroyApplchem]
+  before_action :applchemNot?, only: [:applchem, :destroyApplchem]
   before_action :feeOfSchoolNot?
   before_action :ApplchemTime, only: [:applchem,:destroyApplchem]
   before_action :ordinaryUserNot?
-  before_action :applyApplchemLocker?, only: [:index]
+  before_action :applyApplchemLocker?, only: [:applchem]
 def applchem
   @lockers = ApplchemLocker.all
   # 행           열 #
@@ -58,6 +58,14 @@ def ApplchemTime
     end
   end
 end
+
+
+  def applyApplchemLocker?
+    if current_user.applchemLocker
+      redirect_to root_path, method: "get"
+      flash[:alert] = "이미 신청하셨습니다."
+    end
+  end
 
 
 end

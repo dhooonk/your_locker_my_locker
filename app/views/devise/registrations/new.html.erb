@@ -6,7 +6,8 @@
       <div class="card">
       <div class="card-body">
         <div class="col-md-4 col-md-offset-4">
-          <h2><%= t(".sign_up") %></h2>
+          <h3><%= t(".sign_up") %> <small> Sign Up</samll></h3>
+          <hr>
           <div class="form-inputs">
           <%= f.input :name, required: true, autofocus: true, label: "이름" %>
           <%= f.input :studentNumber, required: true, label: "학번", placeholder: '2018101234', hint: "학번은 아이디로 사용됩니다."%>
@@ -22,8 +23,10 @@
 
         <div class="card">
           <div class="card-body">
-          <small>* 미납부자일 경우 서비스이용에 제한이 있을 수 있으며 거짓으로 납부여부를 기입하여 부당한 이득을 취했을 경우 보상을 청구할 수 있습니다.</small>
-          <%= f.input :notation, required: true, label: "확인하였으며 동의합니다. ", as: :radio_buttons, :collection => [[ "확인",true ]]%>
+            <strong>공지사항</strong>
+              <hr>
+              미납부자일 경우 서비스이용에 제한이 있을 수 있으며 거짓으로 납부여부를 기입하여 부당한 이득을 취했을 경우 보상을 청구할 수 있습니다.</br></br>
+          <div class="notation" style="text-align:right;"><%= f.input :notation, required: true, label: "확인하였으며 동의합니다. ", as: :radio_buttons, :collection => [[ "확인",true ]]%></div>
           </div>
         </div>
         <br>
@@ -31,8 +34,8 @@
             <div class="form-actions">
               <%= f.button :submit, t(".sign_up"),class: "btn" %>
               <!-- <%= render "devise/shared/links" %> -->
-              <%= link_to "로그인", new_user_session_path, method: "get", class: "btn"  %>
-              <%= link_to "이전", root_path, method: "get", class: "btn"  %>
+              <%= link_to "로그인", new_user_session_path, method: "get", class: "btn btn-light"  %>
+              <%= link_to "이전", root_path, method: "get", class: "btn btn-light"  %>
             </div>
             <% end %>
           </div>

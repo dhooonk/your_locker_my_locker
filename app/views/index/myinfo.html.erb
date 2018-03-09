@@ -3,9 +3,10 @@
     <div class="card">
     <div class="card-body">
 
-  <h1 class="page-header">
-    내 정보<small>My info</small>
-  </h1>
+  <h3 class="page-header">
+    내 정보 <small>My info</small>
+  </h3>
+  <hr>
 
 <div class="table-responsive">
   <table class="table">
@@ -15,6 +16,8 @@
      <th scope="col"><strong>이름</strong></th>
      <th scope="col"><strong>학과</strong></th>
      <th scope="col"><strong>학번</strong></th>
+     <th scope="col"><strong>연락처</strong></th>
+     <th scope="col"><strong>이메일</strong></th>
      <th scope="col"><strong>비밀번호</strong></th>
      <th scope="col"><strong>사물함</strong></th>
      <th scope="col"><strong>학생회비납부여부</strong></th>
@@ -30,6 +33,8 @@
      <td><%= current_user.name %></td>
      <td><%= current_user.major %></td>
      <td><%= current_user.studentNumber %></td>
+     <td><%= current_user.phoneNumber %></td>
+     <td><%= current_user.email %></td>
      <td><%= link_to "회원정보수정", edit_user_registration_path , class: "btn btn-outline-secondary btn-sm" %></td>
       <% if current_user.major == "응용화학과" %>
         <% if (current_user.applchemLocker != nil) %>
