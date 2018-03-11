@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   get "/admin/applchem" => "locker#applchem"
   post "/admin/applchem" => "locker#create"
   delete "/admin/destroyApplchem/:id" => "locker#destroyApplchem"
+
   #route security
-#   match '*path' => redirect('/'), via: :get
-# get '/rails/info/routes' => redirect('/')
+  match '*path' => redirect('/'), via: :get
+  get '/rails/info/routes' => redirect('/')
 end
