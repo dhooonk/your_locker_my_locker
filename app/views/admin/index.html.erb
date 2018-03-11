@@ -3,12 +3,13 @@
   <div class="col-12">
     <div class="card">
     <div class="card-body">
-    <h1 class="page-header">
-      신청현황<small>Application Condition</small>
-    </h1>
+      <h3 class="page-header">
+        신청현황 <small>Application Condition</small>
+      </h3>
+      <hr>
+
         <%= flash[:notice] %>
         <%= flash[:caution] %>
-
 
             <div class="table-responsive">
                 <table class="table table-condensed">
@@ -30,9 +31,9 @@
                       <tr>
                           <td>
                             <% if userInformation.identity == "student" %>
-                              학부생
+                              <span class="badge badge-light">학부생</span>
                             <% elsif userInformation.identity == "admin" %>
-                              관리자
+                              <span class="badge badge-dark">관리자</span>
                             <% end %>
                           </td>
                           <td>
@@ -45,16 +46,16 @@
                             <%= userInformation.studentNumber %>
                           </td>
                           <td>
-                              <%= userInformation.phoneNumber %>
+                              0<%= userInformation.phoneNumber %>
                           </td>
                           <td>
                               <%= userInformation.email %>
                           </td>
                           <td>
                             <% if userInformation.feeOfSchool == true %>
-                            납부<%= link_to "[변경]", "/admin/#{userInformation.id}", method: "post", data: {confirm: "(#{userInformation.studentNumber})계정의 학생회비를 '미납'으로 변경하시겠습니까?"} %>
+                            <span class="badge badge-success">납부</span> <%= link_to "변경", "/admin/#{userInformation.id}", method: "post", class: "btn btn-outline-secondary btn-sm", data: {confirm: "(#{userInformation.studentNumber})계정의 학생회비를 '미납'으로 변경하시겠습니까?"} %>
                             <% else %>
-                            미납<%= link_to "[변경]", "/admin/#{userInformation.id}", method: "post", data: {confirm: "(#{userInformation.studentNumber})계정의 학생회비를 '납부'로 변경하시겠습니까?"}  %>
+                            <span class="badge badge-danger">미납</span> <%= link_to "변경", "/admin/#{userInformation.id}", method: "post", class: "btn btn-outline-secondary btn-sm", data: {confirm: "(#{userInformation.studentNumber})계정의 학생회비를 '납부'로 변경하시겠습니까?"}  %>
                             <% end %>
                           </td>
                       <% if current_user.major == "응용화학과" %>
@@ -65,7 +66,7 @@
                         <% end %>
                       <% end %>
                           <td>
-                              <%= link_to "[변경]",edit_admin_path(userInformation.id), method:"get", data: {confirm: "비밀번호가 '123456'으로 변경됩니다. 정말 변경하시겠습니까?"} %>
+                              <%= link_to "변경",edit_admin_path(userInformation.id), method:"get", class: "btn btn-outline-secondary btn-sm", data: {confirm: "비밀번호가 '123456'으로 변경됩니다. 정말 변경하시겠습니까?"} %>
                           </td>
                       </tr>
                     <% end %>

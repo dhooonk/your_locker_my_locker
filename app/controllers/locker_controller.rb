@@ -4,7 +4,7 @@ class LockerController < ApplicationController
   before_action :applchemNot?, only: [:applchem, :destroyApplchem]
   before_action :feeOfSchoolNot?
   before_action :ApplchemTime, only: [:applchem,:destroyApplchem]
-  before_action :ordinaryUserNot?
+  # before_action :ordinaryUserNot?
   before_action :applyApplchemLocker?, only: [:applchem]
 def applchem
   @lockers = ApplchemLocker.all
@@ -31,7 +31,7 @@ def create
           flash[:alert] = "이미 신청완료 된 사물함입니다."
         else
           ApplchemLocker.create(lockerNumber: params[:lockerNumber], major: current_user.major, user_id: current_user.id)
-          redirect_to root_path, method: "get"
+          redirect_to index_myinfo_path, method: "get"
           flash[:success] = "#{params[:lockerNumber]}번 사물함이 신청되었습니다."
         end
       end
@@ -60,10 +60,14 @@ def ApplchemTime
 end
 
 
+
   def applyApplchemLocker?
-    if current_user.applchemLocker
-      redirect_to root_path, method: "get"
-      flash[:alert] = "이미 신청하셨습니다."
+    if current_user.identity == "admin"
+    elsif current_user.identity == "student"
+        if current_user.applchemLocker
+        redirect_to root_path, method: "get"
+        flash[:alert] = "이미 신청하셨습니다."
+      end
     end
   end
 

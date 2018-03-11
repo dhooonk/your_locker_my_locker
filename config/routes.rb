@@ -20,9 +20,14 @@ Rails.application.routes.draw do
 
   #admin
   resources :admin, only: [:index, :destroy, :edit, :update]
-  get "/admin/time"
+  get "/admin/time" =>"admin#time"
+  patch "/admin/time/:id" =>"admin#update"
+  post "/admin/:id" => "admin#feeOfSchool"
 
+  get "/admin/applchem" => "locker#applchem"
+  post "/admin/applchem" => "locker#create"
+  delete "/admin/destroyApplchem/:id" => "locker#destroyApplchem"
   #route security
-  match '*path' => redirect('/'), via: :get
-get '/rails/info/routes' => redirect('/')
+#   match '*path' => redirect('/'), via: :get
+# get '/rails/info/routes' => redirect('/')
 end

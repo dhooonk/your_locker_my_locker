@@ -33,9 +33,9 @@
      <td><%= current_user.name %></td>
      <td><%= current_user.major %></td>
      <td><%= current_user.studentNumber %></td>
-     <td><%= current_user.phoneNumber %></td>
+     <td>0<%= current_user.phoneNumber %></td>
      <td><%= current_user.email %></td>
-     <td><%= link_to "회원정보수정", edit_user_registration_path , class: "btn btn-outline-secondary btn-sm" %></td>
+     <td><%= link_to "회원정보수정", edit_user_registration_path, class: "btn btn-outline-secondary btn-sm" %></td>
       <% if current_user.major == "응용화학과" %>
         <% if (current_user.applchemLocker != nil) %>
           <td><%= current_user.applchemLocker.lockerNumber %>&nbsp<%= link_to "취소", "/locker/destroyApplchem/#{current_user.id}", method:"delete", data: {confirm: "정말 취소하시겠습니까?"}, class: "btn btn-outline-secondary btn-sm" %></td>

@@ -15,7 +15,15 @@
           <%= f.input :password_confirmation, required: true, label: "비밀번호확인" %>
           <%= f.input :phoneNumber, required: true, label: "연락처", placeholder: '01012345678'%>
           <%= f.input :email, required: true, autofocus: true, label: "이메일", placeholder: 'user@domain.com'%>
-          <%= f.input :major, required: true, label: "학과", as: :radio_buttons, :collection => [ "응용화학과" ]%>
+          <%= f.input :major, required: true, label: "학과", as: :radio_buttons, :collection => [ "응용화학과", "응용물리학과", "응용수학과", "우주과학과",
+                                                                                                  "산업경영공학과","기계공학과","원자력공학과","화학공학과","정보전자신소재공학과","사회기반시스템공학과","건축공학과","환경학 및 환경공학과","건축학과",
+                                                                                                   "전자공학과","컴퓨터공학과","생체의공학과","소프트웨어융합학과",
+                                                                                                   # "유전공학과","식품생명공학과","한방재료공학과","식물ㆍ환경신소재공학과","원예생명공학과",
+                                                                                                   # "국제학과",
+                                                                                                   # "프랑스어학과","스페인어학과","러시아어학과","중국어학과","일본어학과","한국어학과","글로벌커뮤니케이션학부",
+                                                                                                   # "산업디자인학과","시각정보디자인학과","환경조경디자인학과","의류디자인학과","디지털콘텐츠학과","PostModern음악학과","연극영화학과","도예학과",
+                                                                                                   # "체육학과","스포츠지도학과","스포츠의학과","골프산업학과","태권도학과",
+                                                                                                   "동서의과학과"]%>
           <%= f.input :identity, required: true, label: "권한", as: :radio_buttons, :collection => [[ "학부생","student" ]]%>
           <%= f.input :feeOfSchool, required: true, label: "학생회비 납부여부", as: :radio_buttons, :collection => [[ "납부", true], ["미납",false]]%>
           </div>

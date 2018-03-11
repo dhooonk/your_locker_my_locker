@@ -10,6 +10,8 @@ class IndexController < ApplicationController
               end
           end
         end
+
+        @UserCount=User.count
       end
 
 

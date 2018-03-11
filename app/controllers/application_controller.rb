@@ -34,12 +34,6 @@ end
     end
   end
 
-  def applyApplchemLocker?
-    if current_user.applchemLocker
-      redirect_to root_path, method: "get"
-      flash[:alert] = "이미 신청하셨습니다."
-    end
-  end
 
   def accessOkay?
     if !current_major?
@@ -48,12 +42,12 @@ end
     end
   end
 
-  def ordinaryUserNot?
-  if (current_user.identity == "admin")
-    redirect_to root_path
-    flash[:alert] = "관리자 계정으로는 사물함 신청이 불가능합니다."
-  end
-end
+  # def ordinaryUserNot?
+  #   if (current_user.identity == "admin")
+  #     redirect_to root_path
+  #     flash[:alert] = "관리자 계정으로는 사물함 신청이 불가능합니다."
+  #   end
+  # end
 
   def applchemStudentTimeStart
     if (current_user.identity == "student")

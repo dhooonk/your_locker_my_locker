@@ -10,7 +10,7 @@
           <h5 class="card-title" style="color: #e9e9e9"> 경희대학교 응용화학과
           <h6 class="card-subtitle mb-2" style="color: #e9e9e9">경희대학교 공과대학 4층
           <p class="card-text">
-            <% if current_user.identity == "student" %>
+            <% if current_user.identity == "student" || "admin"%>
               <% if @time1.studentTimeStart > Time.now %>
               <span class="badge badge-warning">학부생 접수전</span>
               <span class="badge badge-light">신청기간 : <%= @time1.studentTimeStart %> ~ <%= @time1.studentTimeEnd %></span>
@@ -82,11 +82,11 @@
                  <div class="list-group-item list-group-item-action"><%= link_to "로그아웃", destroy_user_session_path, method: "delete" %></div>
                </div>
                <% elsif current_user.identity == "admin" %>
-               <% if current_user.major == "응용화학과" %>
+                <% if current_user.major == "응용화학과" %>
                <div class="card">
                  <div class="card-body">
                    <h5 class="card-title">  <strong><%= current_user.name %></strong>&nbsp님 안녕하세요.</h5>
-                30000명이 사용하고 있습니다.
+                <%= current_user.major %> <%= @UserCount %>명이 사용하고 있습니다.
            </div>
          </div>
             <div class="list-group">
